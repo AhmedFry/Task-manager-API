@@ -18,7 +18,7 @@ router.post('/users' , async (req,res)=>{
     }
 })
 // Read profile
-router.get('/user/me' , auth ,async (req,res)=>{
+router.get('/users/me' , auth ,async (req,res)=>{
     res.send(req.user)
 })
 
@@ -48,7 +48,7 @@ router.delete('/users/me' ,auth , async(req,res)=>{
         sendCancelationEmail(req.user.email , req.user.name) 
         res.send(req.user)
     }catch(e){
-        res.status(500).send()
+        res.status(401).send()
     }
 })
 
